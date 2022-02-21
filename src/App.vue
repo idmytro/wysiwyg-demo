@@ -7,7 +7,8 @@
     >
       <router-link to="/">Home</router-link> |
       <router-link to="/editor-js">Editor.js</router-link> |
-      <router-link to="/quill">Quill</router-link>
+      <router-link to="/quill">Quill</router-link> |
+      <router-link to="/letter">Letter</router-link>
       <!-- <router-link to="/tiptap">TipTap</router-link> | -->
       <!-- <router-link to="/fos">FosPublisher</router-link> -->
     </div>

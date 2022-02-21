@@ -5,6 +5,7 @@ import EditorJs from '../views/EditorJs.vue';
 import QuillJs from '../views/QuillJs.vue';
 import TipTap from '../views/TipTap.vue';
 import FosPublisher from '../views/FosPublisher.vue';
+import LetterView from '../views/LetterView.vue';
 
 Vue.use(VueRouter);
 
@@ -24,6 +25,12 @@ const routes = [
     name: 'QuillJs',
     component: QuillJs,
   },
+  {
+    path: '/letter',
+    name: 'LetterView',
+    component: LetterView,
+  },
+
   {
     path: '/tiptap',
     name: 'TipTap',

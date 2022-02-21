@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <h1>EditorJS</h1>
     <div id="editorjs"></div>
   </div>
@@ -8,9 +8,10 @@
 <script>
 import EditorJS from '@editorjs/editorjs';
 
-const editor = new EditorJS();
-
 export default {
-
+  mounted () {
+    const editor = new EditorJS();
+    console.log(editor);
+  },
 };
 </script>

@@ -3,4 +3,7 @@ module.exports = {
   extends: [
     'airbnb-vue-idmytro',
   ],
+  rules: {
+    'no-console': 0,
+  },
 };

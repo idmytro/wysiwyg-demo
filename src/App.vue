@@ -1,15 +1,13 @@
+<!-- eslint-disable vue/singleline-html-element-content-newline -->
 <template>
   <div id="app">
     <div
       id="nav"
       class="bg-green-200 px-10px"
     >
-      <router-link to="/">
-        Home
-      </router-link> |
-      <router-link to="/editor-js">
-        Editor.js
-      </router-link>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/editor-js">Editor.js</router-link> |
+      <router-link to="/quill">Quill</router-link>
       <!-- <router-link to="/tiptap">TipTap</router-link> | -->
       <!-- <router-link to="/fos">FosPublisher</router-link> -->
     </div>

@@ -27,6 +27,7 @@
     "@vue/eslint-config-airbnb": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.9.0",
+    "eslint-config-airbnb-vue-idmytro": "git+https://github.com/idmytro/eslint-config-airbnb-vue-idmytro.git",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.1",

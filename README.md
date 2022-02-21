@@ -69,6 +69,6 @@ nice demo http://voog.github.io/wysihtml/examples/advanced.html
 
 https://stackoverflow.com/questions/52315316/emulate-document-pages-in-quill-js-editor
     -> https://github.com/quilljs/quill/issues/633#issuecomment-440623398
-
+    -> https://stackblitz.com/edit/ng-quill-editor?file=src/app/app.component.ts
 
 https://github.com/fospublisher201/fospublisher-vue-text-editor

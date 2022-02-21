@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <div class="bg-pink-200 w-10cm font-mono">
-      LV
+  <div class="py-1rem">
+    <div class="bg-light-500 w-8.5in min-h-11in mx-auto">
     </div>
   </div>
 </template>

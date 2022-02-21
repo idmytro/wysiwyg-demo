@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import EditorJs from '../views/EditorJs.vue';
 import TipTap from '../views/TipTap.vue';
 import FosPublisher from '../views/FosPublisher.vue';
 
@@ -11,6 +12,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/editor-js',
+    name: 'EditorJs',
+    component: EditorJs,
   },
   {
     path: '/tiptap',

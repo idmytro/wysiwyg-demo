@@ -10,19 +10,19 @@ import LetterView from '../views/LetterView.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home,
+  // },
   {
     path: '/editor-js',
     name: 'EditorJs',
     component: EditorJs,
   },
   {
-    path: '/quill',
-    name: 'QuillJs',
+    path: '/',
+    name: 'Quill',
     component: QuillJs,
   },
   {

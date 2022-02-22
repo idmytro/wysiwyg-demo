@@ -1,17 +1,19 @@
-<!-- eslint-disable vue/singleline-html-element-content-newline -->
 <template>
   <div id="app">
-    <div id="nav">
-      <div class="flex bg-green-200 px-10px">
-        <router-link
+    <div
+      id="nav"
+      class="nav"
+    >
+      <div class="nav-level1 | flex px-10px">
+        <!-- <router-link
           class="px-10px"
           to="/"
         >
           Home
-        </router-link>
+        </router-link> -->
         <router-link
           class="px-10px"
-          to="/quill"
+          :to="{name: 'Quill'}"
         >
           Quill
         </router-link>
@@ -31,14 +33,21 @@
       <!-- <router-link to="/tiptap">TipTap</router-link> | -->
       <!-- <router-link to="/fos">FosPublisher</router-link> -->
       </div>
-      <div class="flex">
+      <div
+        v-if="$route.name === 'Quill'"
+        class="nav-level2 | flex px-20px"
+      >
         <router-link
           class="px-10px"
-          to="/quill"
+          :to="{name: 'Quill'}"
         >
-          Quill Base Example
+          Base Example
         </router-link>
       </div>
+      <div
+        v-else
+        class="h-5px bg-gray-300"
+      ></div>
     </div>
     <router-view />
   </div>
@@ -46,20 +55,28 @@
 
 <style>
 #app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.nav a {
+  @apply text-gray-700 font-bold;
 }
 
-#nav a.router-link-exact-active {
-  /* color: #42b983; */
-  background-color: rgba(242, 242, 242, var(--tw-bg-opacity));
+.nav-level1 {
+  @apply bg-gray-400 border-gray-400 border-t-5px;
+}
+
+.nav .router-link-exact-active {
+  @apply bg-gray-300;
+}
+
+.nav-level2 {
+  @apply bg-gray-300 border-gray-300 border-t-5px;
+}
+
+.nav-level2  .router-link-exact-active {
+  @apply bg-light-500;
 }
 </style>

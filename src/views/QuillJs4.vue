@@ -36,6 +36,13 @@
           </select>
         </span>
         <span class="ql-formats">
+          <select class="ql-font">
+            <option selected>Helvetica</option>
+            <option value="roboto">Roboto</option>
+            <option value="ubuntu">Ubuntu</option>
+          </select>
+        </span>
+        <span class="ql-formats">
           <select class="ql-color">
             <option selected></option>
             <option value="red"></option>
@@ -97,6 +104,12 @@ Quill.register(BackgroundClass, true);
 Quill.register(ColorClass, true);
 Quill.register(SizeStyle, true);
 
+const FontAttributor = Quill.import('attributors/class/font');
+FontAttributor.whitelist = [
+  'roboto', 'ubuntu',
+];
+Quill.register(FontAttributor, true);
+
 /* https://quilljs.com/guides/why-quill/ */
 
 export default {
@@ -111,3 +124,12 @@ export default {
   },
 };
 </script>
+
+<style>
+.ql-font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.ql-font-ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+</style>

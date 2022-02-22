@@ -1,3 +1,7 @@
+<!--
+https://github.com/quilljs/webpack-example
+-->
+
 <template>
   <div id="app">
     <div
@@ -13,6 +17,7 @@
         </router-link> -->
         <router-link
           class="px-10px"
+          :class="$route.name.match('Quill') && 'router-link-exact-active'"
           :to="{name: 'Quill'}"
         >
           Quill
@@ -34,7 +39,7 @@
       <!-- <router-link to="/fos">FosPublisher</router-link> -->
       </div>
       <div
-        v-if="$route.name === 'Quill'"
+        v-if="$route.name.match('Quill')"
         class="nav-level2 | flex px-20px"
       >
         <router-link
@@ -42,6 +47,24 @@
           :to="{name: 'Quill'}"
         >
           Base Example
+        </router-link>
+        <router-link
+          class="px-10px"
+          :to="{name: 'Quill2'}"
+        >
+          Sizes & Colors
+        </router-link>
+        <router-link
+          class="px-10px"
+          :to="{name: 'Quill3'}"
+        >
+          + Fonts
+        </router-link>
+        <router-link
+          class="px-10px"
+          :to="{name: 'Quill4'}"
+        >
+          4
         </router-link>
       </div>
       <div

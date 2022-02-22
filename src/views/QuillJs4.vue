@@ -1,4 +1,8 @@
 <!--
+https://github.com/quilljs/webpack-example
+-->
+
+<!--
 ### Features
 
 **Нужны:**

@@ -1,7 +1,3 @@
-<!--
-https://github.com/quilljs/webpack-example
--->
-
 <template>
   <div id="app">
     <div
@@ -60,12 +56,12 @@ https://github.com/quilljs/webpack-example
         >
           + Fonts
         </router-link>
-        <router-link
+        <!-- <router-link
           class="px-10px"
           :to="{name: 'Quill4'}"
         >
           4
-        </router-link>
+        </router-link> -->
       </div>
       <div
         v-else

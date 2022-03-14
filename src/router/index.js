@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import EditorJs from '../views/EditorJs.vue';
 import QuillJs from '../views/QuillJs.vue';
 import QuillJs2 from '../views/QuillJs2.vue';
 import QuillJs3 from '../views/QuillJs3.vue';
@@ -18,11 +17,6 @@ const routes = [
   //   name: 'Home',
   //   component: Home,
   // },
-  {
-    path: '/editor-js',
-    name: 'EditorJs',
-    component: EditorJs,
-  },
   {
     path: '/',
     alias: '/quill',

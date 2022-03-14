@@ -20,12 +20,6 @@
         </router-link>
         <router-link
           class="px-10px"
-          to="/editor-js"
-        >
-          Editor.js
-        </router-link>
-        <router-link
-          class="px-10px"
           to="/letter"
         >
           Letter

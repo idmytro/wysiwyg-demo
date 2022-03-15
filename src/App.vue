@@ -24,6 +24,12 @@
         >
           Letter
         </router-link>
+        <router-link
+          class="px-10px"
+          to="/multi"
+        >
+          Multi
+        </router-link>
 
       <!-- <router-link to="/tiptap">TipTap</router-link> | -->
       <!-- <router-link to="/fos">FosPublisher</router-link> -->

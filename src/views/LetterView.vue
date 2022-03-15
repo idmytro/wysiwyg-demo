@@ -20,6 +20,8 @@
 </template>
 
 <script>
+/* eslint-disable no-new */
+
 import Quill from 'quill';
 import PageBreaks from '@/components/PageBreaks.vue';
 import getUnits from '@/utils/getUnits';
@@ -32,8 +34,8 @@ export default {
     };
   },
   mounted () {
-    // eslint-disable-next-line no-new
-    new Quill('#editor-container', {
+    // new Quill('#editor-container', {
+    new Quill(this.$refs.editor, {
       theme: 'snow',
       modules: {
         toolbar: false,

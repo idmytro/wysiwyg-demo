@@ -1,25 +1,71 @@
 <template>
   <div class="py-1rem bg-light-500 pb-2em">
-    <div class="bg-white w-8.5in min-h-11in mx-auto">
+    <div class="bg-white w-8.5in min-h-11in mx-auto relative | MultiEditor">
       <div
         id="toolbar"
         class="sticky top-0 z-10 bg-white"
       ></div>
-      <div
-        id="editor1"
-        ref="editor1"
-        class="h-3rem"
-      ></div>
-      <div
-        id="editor2"
-        ref="editor2"
-        class="min-h-1em"
-      ></div>
-      <div
-        id="editor3"
-        ref="editor3"
-        class="min-h-1em"
-      ></div>
+      <div class="pt-0.36in">
+        <div class="flex gap-0.10in px-0.59in">
+          <div class="w-1/2 flex flex-col">
+            <div
+              class="
+              editor1
+              w-full h-0.37in
+              !p-0
+              !border-2px !border-dashed
+              rounded-5px
+            "
+              :class="[
+                !editor1Overflowed ? '!border-purple8' : '',
+                editor1Overflowed ? '!border-red-500' : '',
+              ]"
+            >
+              <div
+                id="editor1"
+                ref="editor1"
+                @keyup="update1"
+              ></div>
+            </div>
+
+            <div class="bg-grey1 w-full min-h-1em flex-1 mt-10px rounded-5px"></div>
+          </div>
+
+          <div
+            class="
+              editor2
+              w-1/2 h-2.42in
+              !p-0
+              !border-2px !border-dashed
+              rounded-5px
+            "
+            :class="[
+              !editor2Overflowed ? '!border-purple8' : '',
+              editor2Overflowed ? '!border-red-500' : '',
+            ]"
+            @keyup="update2"
+          >
+            <div
+              id="editor2"
+              ref="editor2"
+              @keyup="update2"
+            ></div>
+          </div>
+        </div>
+        <div
+          class="
+            editor3
+            min-h-6.75in mt-0.43in mx-0.59in
+            !border-2px !border-dashed
+            rounded-5px
+          "
+        >
+          <div
+            id="editor3"
+            ref="editor3"
+          ></div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -115,6 +161,8 @@ export default {
   data () {
     return {
       // h: 11,
+      editor1Overflowed: false,
+      editor2Overflowed: false,
     };
   },
   mounted () {
@@ -131,14 +179,38 @@ export default {
     initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
   },
   methods: {
+    update1 () {
+      const lastElement = this.$refs.editor1.firstChild.lastChild;
+      this.editor1Overflowed = lastElement.offsetHeight + lastElement.offsetTop > this.$refs.editor1.offsetHeight;
+      console.log(this.editor1Overflowed);
+    },
+    update2 () {
+      const lastElement = this.$refs.editor2.firstChild.lastChild;
+      this.editor2Overflowed = lastElement.offsetHeight + lastElement.offsetTop > this.$refs.editor2.offsetHeight;
+      console.log(this.editor1Overflowed);
+    },
   },
 };
 </script>
 
 <style>
-.ql-editor {
-  min-height: 11in;
-  background-color: #fff;
-  padding-left: 50px;
+.MultiEditor :focus-visible {
+  outline: none;
+}
+
+.editor1 .ql-editor,
+.editor2 .ql-editor,
+.editor3 .ql-editor {
+  padding: 0;
+  line-height: 1.2;
+}
+
+.editor3 .ql-container,
+.editor3 .ql-editor {
+  min-height: 6.75in;
+}
+
+.MultiEditor .ql-container.ql-snow {
+  border-color: transparent;
 }
 </style>

@@ -1,9 +1,6 @@
 <template>
   <div class="py-1rem bg-light-500 pb-2em">
-    <div
-      class="bg-white w-8.5in min-h-11in mx-auto"
-      :data-style="`height: ${h}in`"
-    >
+    <div class="bg-white w-8.5in min-h-11in mx-auto">
       <PageBreaks :height="+h">
         <div
           id="editor-container"

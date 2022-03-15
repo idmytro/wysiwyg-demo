@@ -1,71 +1,81 @@
 <template>
   <div class="py-1rem bg-light-500 pb-2em">
-    <div class="bg-white w-8.5in min-h-11in mx-auto relative | MultiEditor">
+    <div class="bg-white w-8.5in mx-auto relative | MultiEditor">
       <div
         id="toolbar"
         class="sticky top-0 z-10 bg-white"
       ></div>
-      <div class="pt-0.36in">
-        <div class="flex gap-0.10in px-0.59in">
-          <div class="w-1/2 flex flex-col">
-            <div
-              class="
+      <PageBreaks :height="+h">
+        <div
+          ref="editor"
+          class="pt-0.36in min-h-11in"
+        >
+          <div class="flex gap-0.10in px-0.59in">
+            <div class="w-1/2 flex flex-col">
+              <div
+                class="
               editor1
               w-full h-0.37in
               !p-0
               !border-2px !border-dashed
               rounded-5px
             "
-              :class="[
-                !editor1Overflowed ? '!border-purple8' : '',
-                editor1Overflowed ? '!border-red-500' : '',
-              ]"
-            >
-              <div
-                id="editor1"
-                ref="editor1"
-                @keyup="update1"
-              ></div>
+                :class="[
+                  !editor1Overflowed ? '!border-purple8' : '',
+                  editor1Overflowed ? '!border-red-500' : '',
+                ]"
+              >
+                <div
+                  id="editor1"
+                  ref="editor1"
+                  @keyup="update1"
+                ></div>
+              </div>
+
+              <div class="bg-grey1 w-full min-h-1em flex-1 mt-10px rounded-5px"></div>
             </div>
 
-            <div class="bg-grey1 w-full min-h-1em flex-1 mt-10px rounded-5px"></div>
+            <div
+              class="
+                editor2
+                w-1/2 h-2.42in
+                !p-0
+                !border-2px !border-dashed
+                rounded-5px
+              "
+              :class="[
+                !editor2Overflowed ? '!border-purple8' : '',
+                editor2Overflowed ? '!border-red-500' : '',
+              ]"
+              @keyup="update2"
+            >
+              <div
+                id="editor2"
+                ref="editor2"
+                @keyup="update2"
+              ></div>
+            </div>
           </div>
-
           <div
             class="
-              editor2
-              w-1/2 h-2.42in
-              !p-0
+              editor3
+              min-h-6.75in mt-0.43in mx-0.59in
               !border-2px !border-dashed
               rounded-5px
             "
             :class="[
-              !editor2Overflowed ? '!border-purple8' : '',
-              editor2Overflowed ? '!border-red-500' : '',
+              pageCount > MAX_PAGE_COUNT ? '!border-red-500' : '!border-purple8',
             ]"
-            @keyup="update2"
           >
             <div
-              id="editor2"
-              ref="editor2"
-              @keyup="update2"
+              id="editor3"
+              ref="editor3"
+              @keyup="update3"
             ></div>
           </div>
         </div>
-        <div
-          class="
-            editor3
-            min-h-6.75in mt-0.43in mx-0.59in
-            !border-2px !border-dashed
-            rounded-5px
-          "
-        >
-          <div
-            id="editor3"
-            ref="editor3"
-          ></div>
-        </div>
-      </div>
+      </PageBreaks>
+      <div class="h-0.35in bg-white"></div>
     </div>
   </div>
 </template>
@@ -74,6 +84,14 @@
 /* eslint-disable no-new */
 
 import Quill from 'quill';
+
+import PageBreaks from '@/components/PageBreaks.vue';
+import getUnits from '@/utils/getUnits';
+
+const FIRST_PAGE_HEIGHT = 11;
+const PAGE_HEIGHT = 10;
+const FIRST_PAGE_DIFF = FIRST_PAGE_HEIGHT - PAGE_HEIGHT;
+const MAX_PAGE_COUNT = 6;
 
 const toolbarOptions = [
   ['bold', 'italic', 'underline', 'strike'], // toggled buttons
@@ -152,28 +170,19 @@ function initQuill (element, globalToolbarContainer) {
   }
 }
 
-// initQuill(document.querySelector('#editor1'), document.querySelector('#toolbar'));
-// initQuill(document.querySelector('#editor2'), document.querySelector('#toolbar'));
-// initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
-
 export default {
-  components: { },
+  components: { PageBreaks },
   data () {
     return {
-      // h: 11,
+      MAX_PAGE_COUNT,
+      h: 11,
+      pageCount: 1,
       editor1Overflowed: false,
       editor2Overflowed: false,
+      editor3Overflowed: false,
     };
   },
   mounted () {
-    // new Quill('#editor-container', {
-    // new Quill(this.$refs.editor, {
-    //   theme: 'snow',
-    //   modules: {
-    //     toolbar: false,
-    //   },
-    // });
-
     initQuill(document.querySelector('#editor1'), document.querySelector('#toolbar'));
     initQuill(document.querySelector('#editor2'), document.querySelector('#toolbar'));
     initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
@@ -182,12 +191,14 @@ export default {
     update1 () {
       const lastElement = this.$refs.editor1.firstChild.lastChild;
       this.editor1Overflowed = lastElement.offsetHeight + lastElement.offsetTop > this.$refs.editor1.offsetHeight;
-      console.log(this.editor1Overflowed);
     },
     update2 () {
       const lastElement = this.$refs.editor2.firstChild.lastChild;
       this.editor2Overflowed = lastElement.offsetHeight + lastElement.offsetTop > this.$refs.editor2.offsetHeight;
-      console.log(this.editor1Overflowed);
+    },
+    update3 () {
+      this.h = getUnits(this.$refs.editor, 'height').inch;
+      this.pageCount = Math.floor((this.h - FIRST_PAGE_DIFF) / PAGE_HEIGHT) + 1;
     },
   },
 };

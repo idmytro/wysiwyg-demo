@@ -1,9 +1,6 @@
 <template>
   <div class="py-1rem bg-light-500 pb-2em">
-    <div
-      class="bg-white w-8.5in min-h-11in mx-auto"
-      :data-style="`height: ${h}in`"
-    >
+    <div class="bg-white w-8.5in min-h-11in mx-auto">
       <PageBreaks :height="+h">
         <div
           id="editor-container"
@@ -20,6 +17,8 @@
 </template>
 
 <script>
+/* eslint-disable no-new */
+
 import Quill from 'quill';
 import PageBreaks from '@/components/PageBreaks.vue';
 import getUnits from '@/utils/getUnits';
@@ -32,8 +31,8 @@ export default {
     };
   },
   mounted () {
-    // eslint-disable-next-line no-new
-    new Quill('#editor-container', {
+    // new Quill('#editor-container', {
+    new Quill(this.$refs.editor, {
       theme: 'snow',
       modules: {
         toolbar: false,
@@ -49,9 +48,9 @@ export default {
 </script>
 
 <style>
-.ql-editor {
+/* .ql-editor {
   min-height: 11in;
   background-color: #fff;
   padding-left: 50px;
-}
+} */
 </style>

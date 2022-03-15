@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style>
-.ql-editor {
+/* .ql-editor {
   min-height: 11in;
   background-color: #fff;
   padding-left: 50px;
-}
+} */
 </style>

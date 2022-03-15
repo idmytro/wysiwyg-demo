@@ -3,12 +3,21 @@
     <div class="bg-white w-8.5in min-h-11in mx-auto">
       <div
         id="toolbar"
-        class="sticky"
-      >
-        123
-      </div>
+        class="sticky top-0 z-10 bg-white"
+      ></div>
       <div
-        ref="editor"
+        id="editor1"
+        ref="editor1"
+        class="h-3rem"
+      ></div>
+      <div
+        id="editor2"
+        ref="editor2"
+        class="min-h-1em"
+      ></div>
+      <div
+        id="editor3"
+        ref="editor3"
         class="min-h-1em"
       ></div>
     </div>
@@ -97,12 +106,9 @@ function initQuill (element, globalToolbarContainer) {
   }
 }
 
-initQuill(document.querySelector('#editor'), document.querySelector('#toolbar'));
-initQuill(document.querySelector('#editor2'), document.querySelector('#toolbar'));
-initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
-initQuill(document.querySelector('#editor4'), document.querySelector('#toolbar'));
-initQuill(document.querySelector('#editor5'), document.querySelector('#toolbar'));
-initQuill(document.querySelector('#editor6'), document.querySelector('#toolbar'));
+// initQuill(document.querySelector('#editor1'), document.querySelector('#toolbar'));
+// initQuill(document.querySelector('#editor2'), document.querySelector('#toolbar'));
+// initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
 
 export default {
   components: { },
@@ -113,12 +119,16 @@ export default {
   },
   mounted () {
     // new Quill('#editor-container', {
-    new Quill(this.$refs.editor, {
-      theme: 'snow',
-      modules: {
-        toolbar: false,
-      },
-    });
+    // new Quill(this.$refs.editor, {
+    //   theme: 'snow',
+    //   modules: {
+    //     toolbar: false,
+    //   },
+    // });
+
+    initQuill(document.querySelector('#editor1'), document.querySelector('#toolbar'));
+    initQuill(document.querySelector('#editor2'), document.querySelector('#toolbar'));
+    initQuill(document.querySelector('#editor3'), document.querySelector('#toolbar'));
   },
   methods: {
   },

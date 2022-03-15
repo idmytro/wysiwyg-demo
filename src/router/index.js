@@ -9,6 +9,7 @@ import TipTap from '../views/TipTap.vue';
 import FosPublisher from '../views/FosPublisher.vue';
 import LetterView from '../views/LetterView.vue';
 import MultiEditor from '../views/MultiEditor.vue';
+import ConvertUnits from '../views/ConvertUnits.vue';
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,11 @@ const routes = [
     path: '/multi',
     name: 'MultiEditor',
     component: MultiEditor,
+  },
+  {
+    path: '/convert',
+    name: 'ConvertUnits',
+    component: ConvertUnits,
   },
 
   {
